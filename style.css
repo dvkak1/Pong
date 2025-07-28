@@ -14,6 +14,11 @@
 body {
     margin: 0;
     background-color: var(--background-color);
+    /*
+      This is used to prevent the ball from going off the page. Without this. The player will not be able 
+      to look for the ball. 
+    */
+    overflow: hidden;
 }
 
 .paddle {
@@ -71,6 +76,6 @@ body {
 .score > :first-child {
     text-align: right;
     border-right: .5vh solid var(--foreground-color);
-    
+
 
 }

@@ -17,21 +17,24 @@ function update(time) {
 
   if (lastTime != null) {
    const delta = time - lastTime 
+   ball.update(delta)
+
+
 
    //Update code here 
 
   }  
   
   lastTime = time;  
-  console.log(time);
+//   console.log(time);
   //This is where the game logic will go.
   //For now, we will just log the time to the console.  
   window.requestAnimationFrame(update);
 }
 
-//So what is setInterval?
-//setInterval is a function that runs a function repeatedly at a specified interval.
-//
-setInterval(update, 10);
+// //So what is setInterval?
+// //setInterval is a function that runs a function repeatedly at a specified interval.
+// //
+// setInterval(update, 10);
 
 window.requestAnimationFrame(update);
