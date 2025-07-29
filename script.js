@@ -7,17 +7,22 @@
 //Update loops are used to update the game state, render the game and handle user input. 
 
 import Ball from './Ball.js';
+import Paddle from './Paddle.js';
 
 //Declare the ball variable. In this case, it is an instance of the Ball class.
 //The Ball class is imported from the Ball.js file.
 const ball = new Ball(document.getElementById("ball"));
-
+const playerPaddle = new Paddle (document.getElementById("player-paddle"))
+const computerPaddle = new Paddle (document.getElementById("computer-paddle"))
+ 
 let lastTime 
 function update(time) {
 
   if (lastTime != null) {
    const delta = time - lastTime 
+   //Code below is what programs the CPU paddle to follow the ball.
    ball.update(delta)
+   computerPaddle.update(delta, ball.y)
 
 
 
@@ -26,9 +31,6 @@ function update(time) {
   }  
   
   lastTime = time;  
-//   console.log(time);
-  //This is where the game logic will go.
-  //For now, we will just log the time to the console.  
   window.requestAnimationFrame(update);
 }
 
@@ -36,5 +38,9 @@ function update(time) {
 // //setInterval is a function that runs a function repeatedly at a specified interval.
 // //
 // setInterval(update, 10);
+
+document.addEventListener("mousemove", e => {
+    playerPaddle.position = (e.y / window.innerHeight) * 100
+})
 
 window.requestAnimationFrame(update);
