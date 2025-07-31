@@ -16,6 +16,11 @@ export default class Paddle {
    this.paddleElem.style.setProperty("--position", value)
   }
 
+  //Make sure to check if this function exists in the Paddle.js file. 
+  reset() {
+    this.position = 50
+  }
+
   update(delta, ballHeight) {
     this.position += SPEED * delta * (ballHeight - this.position)
   }
