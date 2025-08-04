@@ -14,6 +14,10 @@ export default class Paddle {
 
   set position(value) {
    this.paddleElem.style.setProperty("--position", value)
+  } 
+
+  rect() {
+    return this.paddleElem.getBoundingClientRect();
   }
 
   //Make sure to check if this function exists in the Paddle.js file. 

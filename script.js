@@ -25,7 +25,7 @@ function update(time) {
    const delta = time - lastTime 
    //Code below is what programs the CPU paddle to follow the ball.
    //In development, deactivate the ball update line for now.
-   ball.update(delta)
+   ball.update(delta, [playerPaddle.rect(), computerPaddle.rect()])
    computerPaddle.update(delta, ball.y)
   
    //When testing this code, comment out Line 65 to 67 
